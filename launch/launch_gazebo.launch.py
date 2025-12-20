@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    package_name='my_bot'
+    package_name='humble_robot'
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory(package_name), 'launch', 'rsp.launch.py'
@@ -23,7 +23,7 @@ def generate_launch_description():
     )
 
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py', 
-                        arguments=['-topic', 'robot_description', '-entity', 'my_bot'],
+                        arguments=['-topic', 'robot_description', '-entity', 'humble_robot'],
                         output='screen')
 
     
