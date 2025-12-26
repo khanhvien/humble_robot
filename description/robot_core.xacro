@@ -19,11 +19,11 @@
         <color rgba="0 0 0 1"/>
     </material>
 
-    <!--BASE LINK-->
+    <!-- BASE LINK -->
 
     <link name="base_link">
-    
-    </link>
+
+    </link >
 
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
@@ -54,7 +54,7 @@
             <material>Gazebo/White</material>
     </gazebo> 
 
-    <!-- LEFT WHEEL LINK-->
+    <!-- LEFT WHEEL LINK -->
 
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
@@ -68,7 +68,7 @@
             <geometry>
                 <cylinder length="0.04" radius="0.05" />
             </geometry>
-            <material name="blue"/>
+            <material name="black"/>
         </visual>
         <collision>
             <geometry>
@@ -81,10 +81,10 @@
     </link>
 
     <gazebo reference="left_wheel">
-            <material>Gazebo/Blue</material>
+            <material>Gazebo/Black</material>
     </gazebo>
 
-    <!-- RIGHT WHEEL LINK-->
+    <!-- RIGHT WHEEL LINK -->
 
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
@@ -98,7 +98,7 @@
             <geometry>
                 <cylinder length="0.04" radius="0.05" />
             </geometry>
-            <material name="blue"/>
+            <material name="black"/>
         </visual>
         <collision>
             <geometry>
@@ -110,11 +110,11 @@
         </xacro:inertial_cylinder>
     </link>
 
-        <gazebo reference="right_wheel">
-            <material>Gazebo/Blue</material>
-        </gazebo>
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
 
-    <!--CASTER WHEEL LINK-->
+    <!-- CASTER WHEEL LINK -->
     
     <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis"/>
@@ -139,8 +139,8 @@
         </xacro:inertial_sphere>
     </link>
 
-        <gazebo reference="caster_wheel">
-            <material>Gazebo/Black</material>
-        </gazebo>     
+    <gazebo reference="caster_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>     
 
 </robot>
