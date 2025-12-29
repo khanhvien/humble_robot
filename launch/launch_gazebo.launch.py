@@ -8,20 +8,21 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    package_name='humble_robot'
+
+    package_name='humble_robot' 
+    # Include the robot_state_publisher launch file and force sim time to be enabled
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory(package_name), 'launch', 'rsp.launch.py'
-        )]),
-        launch_arguments={'use_sim_time': 'true'}.items()
+        )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
-
+    # Include the Gazebo launch file, provided by the gazebo_ros_package
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
         get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py'
         )]),
     )
-
+    # Run the spawner node from the gazebo_ros package. 
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py', 
                         arguments=['-topic', 'robot_description', '-entity', 'humble_robot'],
                         output='screen')

@@ -19,11 +19,15 @@
         <color rgba="0 0 0 1"/>
     </material>
 
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
     <!-- BASE LINK -->
 
-    <link name="base_link">
+    <link name="base_link"></link >
 
-    </link >
+    <!-- CHASSIS LINK -->
 
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
@@ -54,7 +58,7 @@
             <material>Gazebo/White</material>
     </gazebo> 
 
-    <!-- LEFT WHEEL LINK -->
+    <!-- LEFT_WHEEL LINK -->
 
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
@@ -66,13 +70,13 @@
     <link name="left_wheel">
         <visual>
             <geometry>
-                <cylinder length="0.04" radius="0.05" />
+                <cylinder length="0.04" radius="0.05"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <geometry>
-                <cylinder length="0.04" radius="0.05" />
+                <cylinder length="0.04" radius="0.05"/>
             </geometry>
         </collision>
         <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
@@ -84,7 +88,7 @@
             <material>Gazebo/Black</material>
     </gazebo>
 
-    <!-- RIGHT WHEEL LINK -->
+    <!-- RIGHT_WHEEL LINK -->
 
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
@@ -96,13 +100,13 @@
     <link name="right_wheel">
         <visual>
             <geometry>
-                <cylinder length="0.04" radius="0.05" />
+                <cylinder length="0.04" radius="0.05"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <geometry>
-                <cylinder length="0.04" radius="0.05" />
+                <cylinder length="0.04" radius="0.05"/>
             </geometry>
         </collision>
         <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
@@ -114,7 +118,7 @@
         <material>Gazebo/Black</material>
     </gazebo>
 
-    <!-- CASTER WHEEL LINK -->
+    <!-- CASTER_WHEEL LINK -->
     
     <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis"/>
@@ -141,6 +145,9 @@
 
     <gazebo reference="caster_wheel">
         <material>Gazebo/Black</material>
+        <!-- Specify frition coefficient -->
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
     </gazebo>     
-
+ 
 </robot>
